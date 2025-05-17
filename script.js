@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    shuffleCharacters(characters); // Shuffle characters on page load
+    //shuffleCharacters(characters); // Shuffle characters on page load
 
     // Create 25 cells (5x5 grid)
     for (let i = 0; i < 25; i++) {
@@ -25,9 +25,26 @@ document.addEventListener("DOMContentLoaded", () => {
         gridContainer.appendChild(cell);
     }
 
+    // Store a global reference to the currently playing audio
+    let currentAudio = null;
+
     // Function to show a popup with multiple dialogs
     function showPopup(characterName, characterImageSrc, dialogs) {
         let dialogIndex = 0; // Track the current dialog index
+
+        // Find the character object to get musicPath and musicStart
+        const character = characters.find(c => c.name === characterName);
+        let audio = null;
+        if (character && character.musicPath) {
+            // Stop any currently playing audio before starting new one
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            audio = new Audio(character.musicPath);
+            audio.currentTime = character.musicStart || 0;
+            currentAudio = audio;
+        }
 
         // Create modal elements
         const modal = document.createElement("div");
@@ -52,6 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
         function updateDialog() {
             if (dialogIndex === 0) {
                 dialogElement.textContent = characterName; // Show character name first
+                // Play music on first dialog
+                if (audio) {
+                    audio.play();
+                }
             } else if (dialogIndex <= dialogs.length) {
                 dialogElement.textContent = dialogs[dialogIndex - 1]; // Show dialog text
             } else {
@@ -84,8 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 lastClickedCell.style.backgroundSize = "cover";
                 lastClickedCell.style.backgroundPosition = "center";
             }
-
-            // Add the name to collectedNames and check for victory
+            // Do NOT stop music here, keep it playing after modal closes
             if (characterName) {
                 collectedNames.add(characterName);
                 checkVictory();
@@ -203,4 +223,3 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCountdown(); // Initialize countdown
     setInterval(updateCountdown, 86400000); // Update every 24 hours
 });
-    

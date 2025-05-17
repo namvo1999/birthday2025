@@ -2,10 +2,13 @@ const characters = [
     {
         name: "Sơn Tùng MTP",
         image: "./assets/character-1.png",
+        musicPath: "./assets/music-01.mp3",
+        musicStart: 71, // seconds, where to start the music (1:11)
         dialogs: [
             "Hello Thảo!",
             "Sơn Tùng M-TP xin được gửi một cái ôm thật to và một lời chúc thật chất đến em trong ngày đặc biệt này.",
-            "Hôm nay là một ngày rất gì và này nọ, vì đó là ngày em đến với thế giới này – như một vì sao toả sáng trong dải ngân hà mang tên ‘người tuyệt vời’.",
+            "Hôm nay là một ngày rất gì và này nọ, vì đó là ngày em đến với thế giới này",
+            "Như một vì sao toả sáng trong dải ngân hà mang tên ‘người tuyệt vời’.",
             "Hãy luôn là chính mình, toả sáng theo cách riêng, và đừng quên:",
             "‘Muốn ngồi ở vị trí không ai ngồi được... phải chịu những cảm xúc không ai chịu được!’",
             "Chúc em tuổi mới nhiều sức khoẻ, nhiều năng lượng tích cực, nhiều thành công rực rỡ và thật nhiều yêu thương.",
@@ -17,6 +20,8 @@ const characters = [
     {
         name: "Andree Right Hand",
         image: "./assets/character-2.png",
+        musicPath: "./assets/music-02.mp3",
+        musicStart: 123, // seconds, where to start the music (2:05)
         dialogs: [
             "Yo Thảo! Happy Birthday em!",
             "Hôm nay là ngày đặc biệt, nên anh phải lên tiếng, dù đang chill đâu đó với bản beat mới.",
@@ -32,6 +37,8 @@ const characters = [
     {
         name: "Luffy Mũ Rơm",
         image: "./assets/character-3.png",
+        musicPath: "./assets/music-03.mp3",
+        musicStart: 86, // seconds, where to start the music (1:26)
         dialogs: [
             "Thảo ơiiiiiiiiiiiii!!!",
             "Hôm nay là sinh nhật cậu đúng không? TUYỆT VỜI!!!",
@@ -47,6 +54,8 @@ const characters = [
     {
         name: "Obito",
         image: "./assets/character-4.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
             "Yo Thảo, sinh nhật vui nha.",
             "Anh không biết em đang nghe nhạc gì, nhưng hy vọng hôm nay là một bản beat thật chill.",
@@ -62,6 +71,8 @@ const characters = [
     {
         name: "Tlinh",
         image: "./assets/character-5.png",
+        musicPath: "./assets/music-05.mp3",
+        musicStart: 20, // seconds, where to start the music (0:20)
         dialogs: [
             "Hi Thảo, hôm nay là ngày của bạn đúng không?",
             "Sinh nhật là dịp để được yêu, được tự hào về chính mình, và được vibe thật lớn với mọi cảm xúc đang có.",
@@ -75,8 +86,10 @@ const characters = [
         ]
     },
     {
-        name: "Harry Potter",
+        name: "Ariana Grande",
         image: "./assets/character-6.png",
+        musicPath: "./assets/music-06.mp3",
+        musicStart: 0,
         dialogs: [
             "Hi sweet Thảo 💖",
             "Just popping in to say… happiest birthday to you, beautiful soul.",
@@ -93,6 +106,8 @@ const characters = [
     {
         name: "Rihanna",
         image: "./assets/character-7.png",
+        musicPath: "./assets/music-07.mp3",
+        musicStart: 0,
         dialogs: [
             "Hey Thảo, bad gal Riri here 👑",
             "It’s your birthday? That’s a whole celebration, baby.",
@@ -108,6 +123,8 @@ const characters = [
     {
         name: "Charlie Puth",
         image: "./assets/character-8.png",
+        musicPath: "./assets/music-08.mp3",
+        musicStart: 38, // seconds, where to start the music (0:38)
         dialogs: [
             "Hey Thảo! It’s Charlie.",
             "I don’t usually write birthday songs for people I haven’t met… but I might make an exception today.",
@@ -122,44 +139,66 @@ const characters = [
         ]
     },
     {
-        name: "Sắm được đồ mình thích thật tuyệt",
+        name: "Doraemon",
         image: "./assets/character-9.png",
-        dialogs: [           
+        musicPath: "./assets/music-09.mp3",
+        musicStart: 31, // seconds, where to start the music (0:31)
+        dialogs: [
+            "Hôm nay là sinh nhật của bạn đúng không? Chúc mừng sinh nhậttttt nhaaa! 🥳",
+            "Tớ đã lục tung cả túi thần kỳ để chuẩn bị vài thứ đặc biệt nè:",
+            "🧁 Một chiếc bánh sinh nhật siêu ngon (ăn hoài không hết!)",
+            "🎁 Một món quà bất ngờ (bí mật nhé, mở ra sẽ biết!)",
+            "💫 Và một ngày thật vui vẻ, ấm áp bên những người bạn yêu thương nhất!",
+            "Tớ hy vọng bạn sẽ luôn cười thật tươi, gặp nhiều may mắn, và có một tuổi mới tràn đầy năng lượng – giống như khi Nobita được điểm 100 vậy đó! 😄",
+            "Nếu có điều ước nào cho tuổi mới, cứ nói với tớ nha – biết đâu trong túi thần kỳ lại có cách giúp đấy~",
+            "Sinh nhật vui vẻ nha, bạn của tớ! 🎈💙"
         ]
     },
     {
-        name: "Không muốn dậy đâu nhưng vẫn phải dậy",
+        name: "Ủa có ai mời Valak không ?",
         image: "./assets/character-10.png",
+        musicPath: "./assets/music-10.mp3",
+        musicStart: 0,
         dialogs: [
         ]
     },
     {
         name: "Đồ ăn nhiều mà không mụp",
         image: "./assets/character-11.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
         ]
     },
     {
         name: "Thức làm gì? Thế giới đẹp nhất là khi ngủ",
         image: "./assets/character-12.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
         ]
     },
     {
         name: "Du dịch vòng quanh thế giới",
         image: "./assets/character-13.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
         ]
     },
     {
         name: "Cuộc sống slowlife tận hưởng thư giãn",
         image: "./assets/character-14.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [            
         ]
     },
     {
         name: "Makeup xinh lung linh",
         image: "./assets/character-15.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
            
         ]
@@ -167,42 +206,56 @@ const characters = [
     {
         name: "Học sao được bị ADHD mà",
         image: "./assets/character-16.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
         ]
     },
     {
         name: "Cute in the rain",
         image: "./assets/character-17.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
         ]
     },
     {
         name: "Nấu ăn như đấm vào mồm",
         image: "./assets/character-18.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
         ]
     },
     {
         name: "Phim cuốn quá không ngủ được",
         image: "./assets/character-19.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
         ]
     },
     {
         name: "Tự cho phép mình mít ướt",
         image: "./assets/character-20.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
         ]
     },
     {
         name: "The Crown",
         image: "./assets/character-21.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
         ]
     },
     {
         name: "The Cake",
         image: "./assets/character-22.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
            
         ]
@@ -210,6 +263,8 @@ const characters = [
     {
         name: "The Flower",
         image: "./assets/character-23.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
             
         ]
@@ -217,6 +272,8 @@ const characters = [
     {
         name: "The Dress",
         image: "./assets/character-24.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [
             
         ]
@@ -224,6 +281,8 @@ const characters = [
     {
         name: "The Shoes",
         image: "./assets/character-25.png",
+        musicPath: "",
+        musicStart: 0,
         dialogs: [          
         ]
     }
