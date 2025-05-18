@@ -1,8 +1,28 @@
+const confettiSettings = { target: 'confetti' };
+const confetti = new window.ConfettiGenerator(confettiSettings);
+
 document.addEventListener("DOMContentLoaded", () => {
     const gridContainer = document.getElementById("grid-container");
     let lastClickedCell = null; // Track the last clicked cell
     const collectedNames = new Set(); // Track collected names
-    const victoryNames = ["The Crown", "The Cake", "The Flower", "The Dress", "The Shoes"]; // Victory condition names
+    const victoryNames = ["Nam"]; // Victory condition names
+
+    // Preload all character images
+    characters.forEach(character => {
+        if (character.image) {
+            const img = new Image();
+            img.src = character.image;
+        }
+    });
+
+    // Preload all music files
+    characters.forEach(character => {
+        if (character.musicPath) {
+            const audio = new Audio();
+            audio.src = character.musicPath;
+            audio.load();
+        }
+    });
 
     // Shuffle the characters array
     function shuffleCharacters(array) {
@@ -12,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    //shuffleCharacters(characters); // Shuffle characters on page load
+    shuffleCharacters(characters); // Shuffle characters on page load
 
     // Create 25 cells (5x5 grid)
     for (let i = 0; i < 25; i++) {
@@ -120,7 +140,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Function to show a victory popup with full-screen graffiti
+    let victoryShown = false; // Ensure only one victory popup per win
     function showVictoryPopup() {
+        if (victoryShown) return; // Prevent multiple popups
+        victoryShown = true;
         // Create modal elements
         const modal = document.createElement("div");
         modal.className = "modal";
@@ -137,29 +160,17 @@ document.addEventListener("DOMContentLoaded", () => {
         victoryMessage.className = "dialog";
         victoryMessage.textContent = "Chúc mừng cậu đã hoàn thành trò chơi!"; // Victory message
 
-        // Create full-screen canvas for graffiti
-        const canvas = document.createElement("canvas");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        canvas.style.position = "fixed";
-        canvas.style.top = "0";
-        canvas.style.left = "0";
-        canvas.style.zIndex = "-1"; // Place behind other elements
-        drawGraffiti(canvas);
-
         // Append elements
-        document.body.appendChild(canvas); // Add canvas to body
         modalContent.appendChild(closeButton);
         modalContent.appendChild(victoryMessage);
         modal.appendChild(modalContent);
         document.body.appendChild(modal);
-
+        confetti.render();
         // Add keydown event listener for Esc key
         document.addEventListener("keydown", handleKeydown);
 
         function closeModal() {
             modal.remove(); // Remove modal on close
-            canvas.remove(); // Remove canvas on close
             document.removeEventListener("keydown", handleKeydown); // Remove keydown listener
         }
 
@@ -170,56 +181,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Function to draw graffiti on the canvas
-    function drawGraffiti(canvas) {
-        const ctx = canvas.getContext("2d");
-
-        // Background gradient
-        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-        gradient.addColorStop(0, "#ff7eb3");
-        gradient.addColorStop(1, "#ff758c");
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Text graffiti
-        ctx.font = "50px Comic Sans MS";
-        ctx.fillStyle = "#fff";
-        ctx.textAlign = "center";
-        ctx.fillText("Victory!", canvas.width / 2, canvas.height / 2 - 20);
-
-        // Add some random splashes
-        for (let i = 0; i < 100; i++) {
-            ctx.beginPath();
-            ctx.arc(
-                Math.random() * canvas.width,
-                Math.random() * canvas.height,
-                Math.random() * 10 + 5,
-                0,
-                Math.PI * 2
-            );
-            ctx.fillStyle = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.8)`;
-            ctx.fill();
-        }
-    }
-
     // Function to check for victory
     function checkVictory() {
+        if(victoryShown)
+            return;
         if (victoryNames.every(name => collectedNames.has(name))) {
             showVictoryPopup(); // Show victory popup with full-screen graffiti
         }
     }
-
-    // Countdown logic
-    const targetDate = new Date("2025-12-31"); // Set target date
-    const countdownElement = document.getElementById("days-left");
-
-    function updateCountdown() {
-        const currentDate = new Date();
-        const timeDifference = targetDate - currentDate;
-        const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-        countdownElement.textContent = daysLeft > 0 ? daysLeft : "0"; // Show 0 if the date has passed
-    }
-
-    updateCountdown(); // Initialize countdown
-    setInterval(updateCountdown, 86400000); // Update every 24 hours
 });

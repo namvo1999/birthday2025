@@ -13,6 +13,17 @@ body {
     overflow: hidden; /* Prevent scrolling if content overflows */
 }
 
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    pointer-events: none;
+    display: block;
+}
+
 #grid-container {
     display: grid;
     grid-template-columns: repeat(5, 150px); /* Increase column width to 150px */
@@ -30,6 +41,7 @@ body {
     background-color: #120B3C; /* Light wood-like background */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
     overflow: hidden; /* Prevent grid overflow */
+    z-index: 1; /* Ensure grid is below confetti */
 }
 
 #grid-container div {

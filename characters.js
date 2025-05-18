@@ -54,8 +54,8 @@ const characters = [
     {
         name: "Obito",
         image: "./assets/character-4.png",
-        musicPath: "",
-        musicStart: 0,
+        musicPath: "./assets/music-04.mp3",
+        musicStart: 39,
         dialogs: [
             "Yo Thảo, sinh nhật vui nha.",
             "Anh không biết em đang nghe nhạc gì, nhưng hy vọng hôm nay là một bản beat thật chill.",
@@ -163,27 +163,45 @@ const characters = [
         ]
     },
     {
-        name: "Đồ ăn nhiều mà không mụp",
+        name: "Liu Grace",
         image: "./assets/character-11.png",
-        musicPath: "",
-        musicStart: 0,
+        musicPath: "./assets/music-11.mp3",
+        musicStart: 13, // seconds, where to start the music (0:13)
         dialogs: [
+            "Yo Thảo! Happy Birthday nha bạn!",
+            "Tớ không cần rap một track dài đâu, vì vibe của bạn đã đủ chất rồi.",
+            "Chúc bạn tuổi mới vẫn xinh, vẫn chất, và vẫn làm chủ được cuộc chơi của riêng mình.",
+            "Mỗi năm lớn thêm là một lần được yêu bản thân sâu hơn.",
+            "Đừng sợ thay đổi — vì bạn vốn không phải để đứng yên.",
+            "Nếu ai đó bảo bạn “quá khác biệt”, hãy mỉm cười. Khác biệt là style.",
+            "Cứ đi – cứ chill – cứ sống – cứ yêu – cứ kệ thiên hạ.",
+            "Thế giới đủ rộng để bạn bung lụa theo kiểu bạn chọn.",
+            "Happy birthday Thảo – từ một người cũng đang học cách glow lên mỗi ngày."
         ]
     },
     {
-        name: "Thức làm gì? Thế giới đẹp nhất là khi ngủ",
+        name: "Chắc cậu không nhớ phim này hehe",
         image: "./assets/character-12.png",
-        musicPath: "",
+        musicPath: "./assets/music-12.mp3",
         musicStart: 0,
         dialogs: [
         ]
-    },
+    },    
     {
-        name: "Du dịch vòng quanh thế giới",
+        name: "MCK",
         image: "./assets/character-13.png",
-        musicPath: "",
-        musicStart: 0,
+        musicPath: "./assets/music-13.mp3",
+        musicStart: 50,
         dialogs: [
+            "Thảo ơi, sinh nhật hả? Happy real chill birthday nha bạn.",
+            "Hôm nay cậu là nhân vật chính, còn thế giới thì... đang đợi cậu bước lên stage.",
+            "Mong tuổi mới của bạn như beat hay: lên – xuống – chill – rồi drop đúng lúc.",
+            "Nếu có buồn, hãy biến nó thành verse. Nếu có vui, hãy sống như một track không cần drop.",
+            "Năm nay, hãy cứ sống thật – thật xinh, thật gắt, thật chill, thật bạn.",
+            "Không cần phải khác biệt – bạn vốn là một version giới hạn rồi.",
+            "Nếu cuộc đời là một cypher – thì bạn chắc chắn là câu punchline.",
+            "Happy birthday, Thảo – let the world catch your vibe, not the other way around.",
+            "Cứ đẹp, cứ đỉnh, cứ đúng như bạn là."
         ]
     },
     {
@@ -212,7 +230,7 @@ const characters = [
         ]
     },
     {
-        name: "Cute in the rain",
+        name: "Liệu sau này c có nấu ăn được không ?",
         image: "./assets/character-17.png",
         musicPath: "",
         musicStart: 0,
@@ -220,7 +238,7 @@ const characters = [
         ]
     },
     {
-        name: "Nấu ăn như đấm vào mồm",
+        name: "Luôn luôn vui vẻ",
         image: "./assets/character-18.png",
         musicPath: "",
         musicStart: 0,
@@ -236,7 +254,7 @@ const characters = [
         ]
     },
     {
-        name: "Tự cho phép mình mít ướt",
+        name: "Mít ướt một tí cũng không sao đâu",
         image: "./assets/character-20.png",
         musicPath: "",
         musicStart: 0,
@@ -244,7 +262,7 @@ const characters = [
         ]
     },
     {
-        name: "The Crown",
+        name: "Ăn nhiều nhưng mà không mập",
         image: "./assets/character-21.png",
         musicPath: "",
         musicStart: 0,
@@ -252,7 +270,7 @@ const characters = [
         ]
     },
     {
-        name: "The Cake",
+        name: "Ngủ thiệt là nhiều vào nhé",
         image: "./assets/character-22.png",
         musicPath: "",
         musicStart: 0,
@@ -261,7 +279,7 @@ const characters = [
         ]
     },
     {
-        name: "The Flower",
+        name: "Tự do du lịch khám phá",
         image: "./assets/character-23.png",
         musicPath: "",
         musicStart: 0,
@@ -270,7 +288,7 @@ const characters = [
         ]
     },
     {
-        name: "The Dress",
+        name: "Mong thời gian sẽ ngừng lại",
         image: "./assets/character-24.png",
         musicPath: "",
         musicStart: 0,
@@ -279,11 +297,17 @@ const characters = [
         ]
     },
     {
-        name: "The Shoes",
+        name: "Nam",
         image: "./assets/character-25.png",
         musicPath: "",
         musicStart: 0,
-        dialogs: [          
+        dialogs: [        
+            "Chúc mừng sinh nhật Thảo!",
+            "Cuối cùng cũng tìm thấy t rồi!",
+            "Quà năm nay thú vị chứ?",
+            "Năm sau lại trông chờ nhé!",
+            "Chúc cậu luôn vui vẻ và hạnh phúc!",
+            "Chúc cậu luôn xinh đẹp và thành công trong cuộc sống!",
         ]
     }
 ];
